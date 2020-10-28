@@ -376,8 +376,8 @@ class MyWindowCallback() : Window.Callback {
                         scrollable = scrollable,
                         visible = visible,
                         resourceId = "",
-                        xpath = xPath,
-                        text = viewText
+                        xpath = "xPath",
+                        text = "viewText"
 
                     )
 
@@ -443,9 +443,9 @@ class MyWindowCallback() : Window.Callback {
                 // char to string conversion
                 val readstring = String(inputBuffer, 0, charRead)
                 s += readstring
-                convertedObject = Gson().fromJson(s, JsonObject::class.java)
-            }
 
+            }
+            convertedObject = Gson().fromJson(s, JsonObject::class.java)
             stream.close()
             println("Input Read json as string$s")
             println("Input convertedObject ${convertedObject.toString()}")

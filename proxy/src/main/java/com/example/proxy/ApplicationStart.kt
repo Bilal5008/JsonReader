@@ -25,7 +25,7 @@ open class ApplicationStart : Application(), Application.ActivityLifecycleCallba
     override fun onCreate() {
         super.onCreate()
         println("Notification onCreatetaeAxiaAplication")
-        registerActivityLifecycleCallbacks(this)
+//        registerActivityLifecycleCallbacks(this)
     }
 
     override fun onActivityCreated(p0: Activity, p1: Bundle?) {
