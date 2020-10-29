@@ -61,6 +61,7 @@ open class ApplicationStart : Application(), Application.ActivityLifecycleCallba
         try {
 
             jsonObject.put("Content", ReadJsonOnMouseEvent(p0))
+            Log.i(TAG, "package name"+ packageName)
             jsonObject.put("LiveTestCaseName", packageName)
             jsonObject.put("TestResult", 1);
         } catch (e: JSONException) {
