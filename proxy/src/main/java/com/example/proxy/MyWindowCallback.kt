@@ -15,6 +15,7 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.get
@@ -39,7 +40,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-
 class MyWindowCallback() : Window.Callback {
 
     val FILE_NAME: String = "File-name"
@@ -61,10 +61,12 @@ class MyWindowCallback() : Window.Callback {
     var viewText: String? = null
     var app: App? = null
     var d: Device? = null
-    var xPath : String?  =null
+    var xPath: String? = null
 
     companion object {
         const val FOO = "MyWindowCallback"
+        const val TextViewFoo = "TextView"
+        const val EditTextFoo = "EditText"
     }
 
     constructor(localCallback: Window.Callback, activity: Activity) : this() {
@@ -74,27 +76,148 @@ class MyWindowCallback() : Window.Callback {
 //        var driver: WebDriver = AndroidDriver(URL("http://127.0.0.1:4723/wd/hub"), capabilities)
         mouseEventList = arrayListOf()
         var viewGroupSize =
-            ((this.activity?.window?.decorView?.findViewById<View>(R.id.content) as? ViewGroup)?.getChildAt(
-                0
-            ) as? ViewGroup)?.childCount
+                ((this.activity?.window?.decorView?.findViewById<View>(R.id.content) as? ViewGroup)?.getChildAt(
+                        0
+                ) as? ViewGroup)?.childCount
 
         if (this.activity != null && this.activity?.window?.decorView?.findViewById<View>(R.id.content) as? ViewGroup != null) {
 
 
             for (i in 0 until viewGroupSize!!) {
-                finalView =
-                    ((this.activity?.window?.decorView?.findViewById<View>(R.id.content) as? ViewGroup)?.getChildAt(0) as? ViewGroup)?.get(i)
+                finalView = ((this.activity?.window?.decorView?.findViewById<View>(R.id.content) as? ViewGroup)?.getChildAt(0) as? ViewGroup)?.get(i)
                 if (finalView is Button) {
-                    addOnTouchListener(finalView as Button, i,activity)
+                    addOnTouchListener(finalView as Button, i, activity)
                 } else if (finalView is EditText) {
                     addSetTextListener(finalView as EditText, i, activity)
+                } else if (finalView is TextView) {
+                    addTextViewListener(finalView as TextView, i, activity)
                 }
-                Log.i(FOO, "UID $i")
+                Log.i(EditTextFoo, "UID $i")
 
             }
 
 
         }
+    }
+
+    private fun addTextViewListener(finalView: TextView, i: Int, activity: Activity) {
+        finalView?.setOnTouchListener { view, motionEvent ->
+            Log.i(TextViewFoo, "FirstAddedTOuchListener $view")
+
+            when (motionEvent?.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    Log.i(TextViewFoo, " rootViewGroup1 viewcheck ${view?.visibility}")
+                }
+                MotionEvent.ACTION_UP -> {
+                    val rootGlobalRect = Rect()
+                    view.getGlobalVisibleRect(rootGlobalRect);
+                    val location = IntArray(2)
+                    Log.i(TextViewFoo, " rootViewGroup1 viewcheck ${view?.visibility}")
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 viewcheck ${
+                                view?.getLocationOnScreen(location).toString()
+                            }"
+                    )
+                    Log.i(TextViewFoo, " rootViewGroup1 UID ${i}")
+
+                    uId = i
+                    val rectf = Rect()
+
+//For coordinates location relative to the parent
+
+//For coordinates location relative to the parent
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 getLocalVisibleRect ${view.getLocalVisibleRect(rectf)}"
+                    )
+//For coordinates location relative to the screen/display
+
+//For coordinates location relative to the screen/display
+
+                    Log.i(
+                            FOO,
+                            " rootViewGroup1 getGlobalVisibleRect ${view.getGlobalVisibleRect(rectf)}"
+                    )
+                    Log.i("left         :", rectf.left.toString());
+                    Log.i("right        :", rectf.right.toString());
+                    Log.i("top          :", rectf.top.toString());
+                    Log.i("bottom       :", rectf.bottom.toString());
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 left ${view.left}"
+                    )
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 Top ${view.top}"
+                    )
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 right ${view.right}"
+                    )
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 bottom ${view.bottom}"
+                    )
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 focus ${view.hasFocus()}"
+                    )
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 visibility ${view.visibility}"
+                    )
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 enable ${view.isEnabled}"
+                    )
+
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 focusable ${view.isFocusable}"
+                    )
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 longclicked ${view.isLongClickable}"
+                    )
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 clickable ${view.isClickable}"
+                    )
+
+                    var firstCordinates = arrayOf(view.left, view.top)
+
+
+                    var secondCordinates = arrayOf(view.right, view.bottom)
+
+                    bounds =
+                            "${Arrays.toString(firstCordinates)} ${Arrays.toString(secondCordinates)}"
+
+                    focused = view.isFocused
+                    visible = view.visibility == 0
+                    enabled = view.isEnabled
+                    focusable = view.isFocusable
+                    longClickable = view.isLongClickable
+                    if (view.isScrollContainer) {
+                        scrollable = true
+                    }
+                    isClickable = view.isClickable
+
+                    view.findViewById<TextView>(view.id)
+                    viewText = (view as TextView).text as String?
+                    xPath = "//hierarchy[1]/"
+
+                }
+            }
+            true
+        }
+
     }
 
     private fun addSetTextListener(finalView: EditText, i: Int, activity: Activity) {
@@ -106,8 +229,8 @@ class MyWindowCallback() : Window.Callback {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
 
                 if (finalView.length() > 0) {
-                    Log.i(FOO, "EditView ${finalView.text}")
-                    Log.i(FOO, "UID $i")
+                    Log.i(EditTextFoo, "View ${finalView.text}")
+                    Log.i(EditTextFoo, "UID $i")
 
                 }
 
@@ -132,10 +255,10 @@ class MyWindowCallback() : Window.Callback {
                     val location = IntArray(2)
                     Log.i(FOO, " rootViewGroup1 viewcheck ${view?.visibility}")
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 viewcheck ${
-                            view?.getLocationOnScreen(location).toString()
-                        }"
+                            FOO,
+                            " rootViewGroup1 viewcheck ${
+                                view?.getLocationOnScreen(location).toString()
+                            }"
                     )
                     Log.i(FOO, " rootViewGroup1 UID ${i}")
 
@@ -146,16 +269,16 @@ class MyWindowCallback() : Window.Callback {
 
 //For coordinates location relative to the parent
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 getLocalVisibleRect ${view.getLocalVisibleRect(rectf)}"
+                            FOO,
+                            " rootViewGroup1 getLocalVisibleRect ${view.getLocalVisibleRect(rectf)}"
                     )
 //For coordinates location relative to the screen/display
 
 //For coordinates location relative to the screen/display
 
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 getGlobalVisibleRect ${view.getGlobalVisibleRect(rectf)}"
+                            FOO,
+                            " rootViewGroup1 getGlobalVisibleRect ${view.getGlobalVisibleRect(rectf)}"
                     )
                     Log.i("left         :", rectf.left.toString());
                     Log.i("right        :", rectf.right.toString());
@@ -163,50 +286,50 @@ class MyWindowCallback() : Window.Callback {
                     Log.i("bottom       :", rectf.bottom.toString());
 
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 left ${view.left}"
+                            FOO,
+                            " rootViewGroup1 left ${view.left}"
                     )
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 Top ${view.top}"
+                            FOO,
+                            " rootViewGroup1 Top ${view.top}"
                     )
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 right ${view.right}"
+                            FOO,
+                            " rootViewGroup1 right ${view.right}"
                     )
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 bottom ${view.bottom}"
-                    )
-
-                    Log.i(
-                        FOO,
-                        " rootViewGroup1 focus ${view.hasFocus()}"
-                    )
-                    Log.i(
-                        FOO,
-                        " rootViewGroup1 visibility ${view.visibility}"
+                            FOO,
+                            " rootViewGroup1 bottom ${view.bottom}"
                     )
 
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 enable ${view.isEnabled}"
+                            FOO,
+                            " rootViewGroup1 focus ${view.hasFocus()}"
+                    )
+                    Log.i(
+                            FOO,
+                            " rootViewGroup1 visibility ${view.visibility}"
+                    )
+
+                    Log.i(
+                            FOO,
+                            " rootViewGroup1 enable ${view.isEnabled}"
                     )
 
 
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 focusable ${view.isFocusable}"
+                            FOO,
+                            " rootViewGroup1 focusable ${view.isFocusable}"
                     )
 
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 longclicked ${view.isLongClickable}"
+                            FOO,
+                            " rootViewGroup1 longclicked ${view.isLongClickable}"
                     )
 
                     Log.i(
-                        FOO,
-                        " rootViewGroup1 clickable ${view.isClickable}"
+                            FOO,
+                            " rootViewGroup1 clickable ${view.isClickable}"
                     )
 
                     var firstCordinates = arrayOf(view.left, view.top)
@@ -215,7 +338,7 @@ class MyWindowCallback() : Window.Callback {
                     var secondCordinates = arrayOf(view.right, view.bottom)
 
                     bounds =
-                        "${Arrays.toString(firstCordinates)} ${Arrays.toString(secondCordinates)}"
+                            "${Arrays.toString(firstCordinates)} ${Arrays.toString(secondCordinates)}"
 
                     focused = view.isFocused
                     visible = view.visibility == 0
@@ -228,7 +351,7 @@ class MyWindowCallback() : Window.Callback {
                     isClickable = view.isClickable
 
                     view.findViewById<Button>(view.id)
-                    viewText = (view as AppCompatButton).text as String?
+                    viewText = (view as Button).text as String?
                     xPath = "//hierarchy[1]/"
 
                 }
@@ -323,12 +446,12 @@ class MyWindowCallback() : Window.Callback {
                     yPos = event.getY(index).toInt()
                     Log.d(FOO, "PRESS on  $xPos - $yPos")
                     mouseEventList?.add(
-                        MouseEvent(
-                            System.currentTimeMillis(),
-                            xPos,
-                            yPos,
-                            actionCode
-                        )
+                            MouseEvent(
+                                    System.currentTimeMillis(),
+                                    xPos,
+                                    yPos,
+                                    actionCode
+                            )
                     )
 //                    }
                 }
@@ -341,12 +464,12 @@ class MyWindowCallback() : Window.Callback {
                     yPos = event.getY(index).toInt()
                     Log.d(FOO, "MOVE on  $xPos - $yPos")
                     mouseEventList?.add(
-                        MouseEvent(
-                            System.currentTimeMillis(),
-                            xPos,
-                            yPos,
-                            actionCode
-                        )
+                            MouseEvent(
+                                    System.currentTimeMillis(),
+                                    xPos,
+                                    yPos,
+                                    actionCode
+                            )
                     )
 
 
@@ -355,67 +478,67 @@ class MyWindowCallback() : Window.Callback {
 
 
                     mouseEventList?.add(
-                        MouseEvent(
-                            System.currentTimeMillis(),
-                            xPos,
-                            yPos,
-                            actionCode
-                        )
+                            MouseEvent(
+                                    System.currentTimeMillis(),
+                                    xPos,
+                                    yPos,
+                                    actionCode
+                            )
                     )
 
                     app = App(activity)
                     var selectedComponent = SelectedComponent(
-                        `package` = app?.packageName,
-                        bounds = bounds.toString(),
-                        uId = uId,
-                        focused = focused,
-                        focusable = focusable,
-                        clickable = isClickable,
-                        enabled = enabled,
-                        longClickable = longClickable,
-                        scrollable = scrollable,
-                        visible = visible,
-                        resourceId = "",
-                        xpath = "xPath",
-                        text = "viewText"
+                            `package` = app?.packageName,
+                            bounds = bounds.toString(),
+                            uId = uId,
+                            focused = focused,
+                            focusable = focusable,
+                            clickable = isClickable,
+                            enabled = enabled,
+                            longClickable = longClickable,
+                            scrollable = scrollable,
+                            visible = visible,
+                            resourceId = "",
+                            xpath = "xPath",
+                            text = "viewText"
 
                     )
 
                     var device = DeviceConfigured(
 
-                        true,
-                        "",
-                        d!!.manufacturer,
-                        getScreenResolution(this.activity),
-                        formatSize(getRamForDevice(this.activity)),
-                        "DEFAULT",
-                        d!!.manufacturer,
-                        d!!.model,
-                        d!!.board,
-                        System.getProperty("os.arch"),
-                        d!!.osVersion,
-                        Build.VERSION.SDK_INT.toString(),
-                        d!!.device,
-                        "ANDROID"
+                            true,
+                            "",
+                            d!!.manufacturer,
+                            getScreenResolution(this.activity),
+                            formatSize(getRamForDevice(this.activity)),
+                            "DEFAULT",
+                            d!!.manufacturer,
+                            d!!.model,
+                            d!!.board,
+                            System.getProperty("os.arch"),
+                            d!!.osVersion,
+                            Build.VERSION.SDK_INT.toString(),
+                            d!!.device,
+                            "ANDROID"
                     )
                     var appInfo = AppInfo(
-                        app?.packageName,
-                        app?.appName,
-                        app?.appVersionCode.toString(),
-                        Build.VERSION.SDK_INT.toString(),
-                        null,
-                        null,
-                        "appIconFile",
-                        "appFile"
+                            app?.packageName,
+                            app?.appName,
+                            app?.appVersionCode.toString(),
+                            Build.VERSION.SDK_INT.toString(),
+                            null,
+                            null,
+                            "appIconFile",
+                            "appFile"
                     )
 
                     var action = "CLICK"
                     get64EncodedString(
-                        writeJSONObjectListener,
-                        selectedComponent,
-                        action,
-                        device,
-                        appInfo
+                            writeJSONObjectListener,
+                            selectedComponent,
+                            action,
+                            device,
+                            appInfo
                     )
 
 
@@ -470,30 +593,30 @@ class MyWindowCallback() : Window.Callback {
         var d = Device(activity)
         app = App(activity)
         var device = DeviceConfigured(
-            true,
-            "",
-            d.manufacturer,
-            getScreenResolution(this.activity),
-            formatSize(getRamForDevice(this.activity)),
-            "DEFAULT",
-            d.manufacturer,
-            d.model,
-            d.board,
-            System.getProperty("os.arch"),
-            d.osVersion,
-            Build.VERSION.SDK_INT.toString(),
-            d.device,
-            "ANDROID"
+                true,
+                "",
+                d.manufacturer,
+                getScreenResolution(this.activity),
+                formatSize(getRamForDevice(this.activity)),
+                "DEFAULT",
+                d.manufacturer,
+                d.model,
+                d.board,
+                System.getProperty("os.arch"),
+                d.osVersion,
+                Build.VERSION.SDK_INT.toString(),
+                d.device,
+                "ANDROID"
         )
         var appInfo = AppInfo(
-            app?.packageName,
-            app?.appName,
-            app?.appVersionCode.toString(),
-            Build.VERSION.SDK_INT.toString(),
-            null,
-            null,
-            "appIconFile",
-            "appFile"
+                app?.packageName,
+                app?.appName,
+                app?.appVersionCode.toString(),
+                Build.VERSION.SDK_INT.toString(),
+                null,
+                null,
+                "appIconFile",
+                "appFile"
         )
 //        var selectedComponent = SelectedComponent()
 //        var scenario = Scenario(
@@ -519,7 +642,7 @@ class MyWindowCallback() : Window.Callback {
         var scenarioList: ArrayList<Scenario> = arrayListOf()
         val jArray: JsonArray = obj as JsonArray
         val yourArray: ArrayList<Scenario> =
-            Gson().fromJson(jArray.toString(), object : TypeToken<List<Scenario?>?>() {}.type)
+                Gson().fromJson(jArray.toString(), object : TypeToken<List<Scenario?>?>() {}.type)
         for (i in 0 until yourArray.size) {
             scenarioList.add(yourArray[i])
         }
@@ -528,12 +651,12 @@ class MyWindowCallback() : Window.Callback {
         var threshold = Threshold()
 
         val obj = CaseScenario(
-            gUID,
-            packageName,
-            scenarioList,
-            device,
-            threshold,
-            appInfo
+                gUID,
+                packageName,
+                scenarioList,
+                device,
+                threshold,
+                appInfo
 
         )
 
@@ -631,8 +754,8 @@ class MyWindowCallback() : Window.Callback {
     private fun getDateTime(timeStamp: Long): String? {
         return try {
             val sdf = SimpleDateFormat(
-                "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-                Locale.getDefault()
+                    "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                    Locale.getDefault()
             )
             val netDate = Date(timeStamp)
             sdf.format(netDate)
@@ -649,45 +772,45 @@ class MyWindowCallback() : Window.Callback {
         d = Device(activity)
         app = App(activity)
         var device = DeviceConfigured(
-            true,
-            "",
-            d!!.manufacturer,
-            getScreenResolution(this.activity),
-            formatSize(getRamForDevice(this.activity)),
-            "DEFAULT",
-            d!!.manufacturer,
-            d!!.model,
-            d!!.board,
-            System.getProperty("os.arch"),
-            d!!.osVersion,
-            Build.VERSION.SDK_INT.toString(),
-            d!!.device,
-            "ANDROID"
+                true,
+                "",
+                d!!.manufacturer,
+                getScreenResolution(this.activity),
+                formatSize(getRamForDevice(this.activity)),
+                "DEFAULT",
+                d!!.manufacturer,
+                d!!.model,
+                d!!.board,
+                System.getProperty("os.arch"),
+                d!!.osVersion,
+                Build.VERSION.SDK_INT.toString(),
+                d!!.device,
+                "ANDROID"
         )
         var appInfo = AppInfo(
-            app?.packageName,
-            app?.appName,
-            app?.appVersionCode.toString(),
-            Build.VERSION.SDK_INT.toString(),
-            null,
-            null,
-            "appIconFile",
-            "appFile"
+                app?.packageName,
+                app?.appName,
+                app?.appVersionCode.toString(),
+                Build.VERSION.SDK_INT.toString(),
+                null,
+                null,
+                "appIconFile",
+                "appFile"
         )
         var selectedComponent = SelectedComponent(
-            `package` = app?.packageName,
-            bounds = bounds.toString(),
-            uId = uId,
-            focused = focused,
-            focusable = focusable,
-            clickable = isClickable,
-            enabled = enabled,
-            longClickable = longClickable,
-            scrollable = scrollable,
-            visible = visible,
+                `package` = app?.packageName,
+                bounds = bounds.toString(),
+                uId = uId,
+                focused = focused,
+                focusable = focusable,
+                clickable = isClickable,
+                enabled = enabled,
+                longClickable = longClickable,
+                scrollable = scrollable,
+                visible = visible,
 
 
-            )
+                )
 
         var action = "APP_LAUNCH"
         get64EncodedString(writeJSONObjectListener, selectedComponent, action, device, appInfo)
@@ -696,26 +819,26 @@ class MyWindowCallback() : Window.Callback {
     }
 
     private fun get64EncodedString(
-        myWindowCallbackObject: writeJSONObjectListener,
-        selectedComponent: SelectedComponent,
-        action: String,
-        device: DeviceConfigured,
-        appInfo: AppInfo
+            myWindowCallbackObject: writeJSONObjectListener,
+            selectedComponent: SelectedComponent,
+            action: String,
+            device: DeviceConfigured,
+            appInfo: AppInfo
     ) {
         var writeJSONObjectListener: writeJSONObjectListener? = myWindowCallbackObject
 
         var bitmap: Bitmap? = null
         var view =
-            (this.activity?.window?.decorView?.findViewById<View>(R.id.content) as? ViewGroup)?.getChildAt(
-                0
-            )
+                (this.activity?.window?.decorView?.findViewById<View>(R.id.content) as? ViewGroup)?.getChildAt(
+                        0
+                )
 
         view?.post {
             view.height //height is ready
             view.width//height is ready
 
             val returnedBitmap =
-                Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+                    Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
             val canvas = Canvas(returnedBitmap)
             val bgDrawable = view.background
             if (bgDrawable != null) bgDrawable.draw(canvas)
@@ -724,11 +847,11 @@ class MyWindowCallback() : Window.Callback {
             bitmap = returnedBitmap
 
             writeJSONObjectListener?.onSuccess(
-                convert(bitmap).toString().replace("\n", ""),
-                selectedComponent,
-                action,
-                device,
-                appInfo
+                    convert(bitmap).toString().replace("\n", ""),
+                    selectedComponent,
+                    action,
+                    device,
+                    appInfo
             )
 
         }
@@ -755,31 +878,31 @@ class MyWindowCallback() : Window.Callback {
 
     val writeJSONObjectListener = object : writeJSONObjectListener {
         override fun onSuccess(
-            stringValue: String?,
-            selectedComponent: SelectedComponent,
-            action: String?,
-            device: DeviceConfigured,
-            appInfo: AppInfo
+                stringValue: String?,
+                selectedComponent: SelectedComponent,
+                action: String?,
+                device: DeviceConfigured,
+                appInfo: AppInfo
         ) {
             if (action === "APP_LAUNCH") {
 
                 var scenario = Scenario(
-                    action,
-                    "--",
-                    "${activity?.javaClass}",
-                    "XML_PLACE",
-                    selectedComponent,
-                    null,
-                    null,
-                    null,
-                    stringValue,
-                    stringValue,
-                    stringValue,
-                    null,
-                    "",
-                    0,
-                    null,
-                    12345
+                        action,
+                        "--",
+                        "${activity?.javaClass}",
+                        "XML_PLACE",
+                        selectedComponent,
+                        null,
+                        null,
+                        null,
+                        stringValue,
+                        stringValue,
+                        stringValue,
+                        null,
+                        "",
+                        0,
+                        null,
+                        12345
                 )
 
                 var scenarioList: ArrayList<Scenario> = arrayListOf()
@@ -790,12 +913,12 @@ class MyWindowCallback() : Window.Callback {
                 gUID = UUID.randomUUID().toString()
                 packageName = "Scenario_${app?.packageName}_app_${System.currentTimeMillis()}"
                 val obj = CaseScenario(
-                    gUID,
-                    packageName,
-                    scenarioList,
-                    device,
-                    threshold,
-                    appInfo
+                        gUID,
+                        packageName,
+                        scenarioList,
+                        device,
+                        threshold,
+                        appInfo
 
                 )
 
@@ -805,22 +928,22 @@ class MyWindowCallback() : Window.Callback {
 
             } else {
                 var scenario = Scenario(
-                    action,
-                    "--",
-                    app?.activityName,
-                    "XML_PLACE",
-                    selectedComponent,
-                    mouseEventList,
-                    null,
-                    null,
-                    stringValue,
-                    stringValue,
-                    stringValue,
-                    null,
-                    "",
-                    0,
-                    null,
-                    12345
+                        action,
+                        "--",
+                        app?.activityName,
+                        "XML_PLACE",
+                        selectedComponent,
+                        mouseEventList,
+                        null,
+                        null,
+                        stringValue,
+                        stringValue,
+                        stringValue,
+                        null,
+                        "",
+                        0,
+                        null,
+                        12345
                 )
 
                 ReadJsonOnMouseEvent(scenario.toJSON()!!)

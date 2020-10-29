@@ -63,7 +63,7 @@ open class ApplicationStart : Application(), Application.ActivityLifecycleCallba
             jsonObject.put("Content", ReadJsonOnMouseEvent(p0))
             Log.i(TAG, "package name"+ packageName)
             jsonObject.put("LiveTestCaseName", packageName)
-            jsonObject.put("TestResult", 1);
+            jsonObject.put("TestResult", 1)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
