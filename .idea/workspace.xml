@@ -6,9 +6,9 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="EditText" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
@@ -37,9 +37,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/ApplicationStart.kt" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/ApplicationStart.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +50,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[956H99GYAER4EUNV]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -75,9 +78,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DEBUGGABLE_DEVICE" value="emulator-5554" />
+    <property name="DEBUGGABLE_DEVICE" value="realme-rmx1821-956H99GYAER4EUNV" />
     <property name="DEBUGGABLE_PROCESS" value="com.example.myproxywithactivity" />
     <property name="DEBUGGER_ID" value="Auto" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="956H99GYAER4EUNV" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-02T05:42:20.967Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
@@ -197,6 +202,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="400" y="220" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1603949879518" />
+    <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1603978702111">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603978702111" />
     <state x="486" y="98" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603885599544">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -209,54 +218,54 @@
       <screen x="1366" y="0" width="1024" height="728" />
     </state>
     <state x="1558" y="68" key="#xdebugger.evaluate/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965798204" />
-    <state x="481" y="110" key="AndroidProcessChooserDialog" timestamp="1603965865453">
+    <state x="481" y="110" key="AndroidProcessChooserDialog" timestamp="1604303812420">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="481" y="110" key="AndroidProcessChooserDialog/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965865453" />
-    <state width="454" height="466" key="DebuggerActiveHint" timestamp="1603888318963">
+    <state x="481" y="110" key="AndroidProcessChooserDialog/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604303812420" />
+    <state width="456" height="466" key="DebuggerActiveHint" timestamp="1604298409491">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="454" height="466" key="DebuggerActiveHint/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603888318963" />
+    <state width="456" height="466" key="DebuggerActiveHint/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604298409491" />
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1603891774272">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603891774272" />
-    <state width="1323" height="83" key="GridCell.Tab.0.bottom" timestamp="1603965865678">
+    <state width="1323" height="247" key="GridCell.Tab.0.bottom" timestamp="1604311984560">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="83" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965865678" />
+    <state width="1323" height="247" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604311984560" />
     <state width="1323" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603954190514" />
-    <state width="1323" height="83" key="GridCell.Tab.0.center" timestamp="1603965865677">
+    <state width="1323" height="247" key="GridCell.Tab.0.center" timestamp="1604311984559">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="83" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965865677" />
+    <state width="1323" height="247" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604311984559" />
     <state width="1323" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603954190514" />
-    <state width="1323" height="83" key="GridCell.Tab.0.left" timestamp="1603965865677">
+    <state width="1323" height="247" key="GridCell.Tab.0.left" timestamp="1604311984559">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="83" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965865677" />
+    <state width="1323" height="247" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604311984559" />
     <state width="1323" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603954190513" />
-    <state width="1323" height="83" key="GridCell.Tab.0.right" timestamp="1603965865678">
+    <state width="1323" height="247" key="GridCell.Tab.0.right" timestamp="1604311984559">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="83" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965865678" />
+    <state width="1323" height="247" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604311984559" />
     <state width="1323" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603954190514" />
-    <state width="1323" height="83" key="GridCell.Tab.1.bottom" timestamp="1603965869076">
+    <state width="1323" height="195" key="GridCell.Tab.1.bottom" timestamp="1604303829616">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="83" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965869076" />
-    <state width="1323" height="83" key="GridCell.Tab.1.center" timestamp="1603965869076">
+    <state width="1323" height="195" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604303829616" />
+    <state width="1323" height="195" key="GridCell.Tab.1.center" timestamp="1604303829615">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="83" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965869076" />
-    <state width="1323" height="83" key="GridCell.Tab.1.left" timestamp="1603965869075">
+    <state width="1323" height="195" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604303829615" />
+    <state width="1323" height="195" key="GridCell.Tab.1.left" timestamp="1604303829615">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="83" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965869075" />
-    <state width="1323" height="83" key="GridCell.Tab.1.right" timestamp="1603965869076">
+    <state width="1323" height="195" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604303829615" />
+    <state width="1323" height="195" key="GridCell.Tab.1.right" timestamp="1604303829616">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="83" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603965869076" />
+    <state width="1323" height="195" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604303829616" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1603878252487">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -265,19 +274,32 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603888318941" />
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603885642614">
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603976656212">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603885642614" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603976656212" />
     <state x="332" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603964176140">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="332" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603964176140" />
-    <state x="389" y="97" width="587" height="534" key="find.popup" timestamp="1603953753798">
+    <state x="241" y="92" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1604303787016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="389" y="97" width="587" height="534" key="find.popup/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1603889083588" />
+    <state x="241" y="92" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604303787016" />
+    <state x="391" y="207" key="edit.logcat.filter.dialog.dimensions" timestamp="1604303537060">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="391" y="207" key="edit.logcat.filter.dialog.dimensions/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604303537060" />
+    <state x="389" y="97" width="587" height="534" key="find.popup" timestamp="1604311713175">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="389" y="97" width="587" height="534" key="find.popup/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604311713175" />
+    <state x="1658" y="97" width="555" height="534" key="find.popup/0.0.1366.728/1366.0.1024.728@1366.0.1024.728" timestamp="1603971774500" />
     <state x="389" y="97" width="587" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1603953753798" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1604312142224">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1024.728@0.0.1366.728" timestamp="1604312142224" />
     <state x="233" y="49" width="897" height="678" key="search.everywhere.popup" timestamp="1603888199848">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -287,35 +309,70 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/ApplicationStart.kt</url>
           <line>41</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
-          <line>815</line>
+          <line>983</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myproxywithactivity/ApplicationClass.kt</url>
           <line>10</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
-          <line>90</line>
+          <line>88</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
-          <line>228</line>
+          <line>227</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
+          <line>703</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/myproxywithactivity/MainActivity.kt</url>
+          <line>15</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
+          <line>224</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
+          <line>725</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
+          <line>1116</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
+          <line>753</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
+          <line>230</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/proxy/src/main/java/com/example/proxy/MyWindowCallback.kt</url>
-          <line>535</line>
-          <option name="timeStamp" value="18" />
+          <line>391</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

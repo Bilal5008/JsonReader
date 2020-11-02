@@ -17,7 +17,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
-import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.get
 import com.an.deviceinfo.device.model.App
 import com.an.deviceinfo.device.model.Device
@@ -25,8 +24,8 @@ import com.example.model.*
 import com.example.utils.Utilities.Companion.formatSize
 import com.example.utils.Utilities.Companion.gUID
 import com.example.utils.Utilities.Companion.getRamForDevice
-import com.example.utils.Utilities.Companion.packageName
 import com.example.utils.Utilities.Companion.getScreenResolution
+import com.example.utils.Utilities.Companion.packageName
 import com.google.gson.Gson
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -35,7 +34,6 @@ import org.json.simple.JSONObject
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.InputStreamReader
-import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -99,6 +97,7 @@ class MyWindowCallback() : Window.Callback {
 
         }
     }
+
 
     private fun addTextViewListener(finalView: TextView, i: Int, activity: Activity) {
         finalView?.setOnTouchListener { view, motionEvent ->
@@ -225,12 +224,179 @@ class MyWindowCallback() : Window.Callback {
 
         finalView.imeOptions = EditorInfo.IME_ACTION_DONE
 
-        finalView.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+        finalView.setOnEditorActionListener(OnEditorActionListener { view, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
 
                 if (finalView.length() > 0) {
                     Log.i(EditTextFoo, "View ${finalView.text}")
                     Log.i(EditTextFoo, "UID $i")
+
+
+                    val rootGlobalRect = Rect()
+                    view.getGlobalVisibleRect(rootGlobalRect);
+                    val location = IntArray(2)
+                    Log.i(TextViewFoo, " rootViewGroup1 viewcheck ${view?.visibility}")
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 viewcheck ${
+                                view?.getLocationOnScreen(location).toString()
+                            }"
+                    )
+                    Log.i(TextViewFoo, " rootViewGroup1 UID ${i}")
+
+                    uId = i
+                    val rectf = Rect()
+
+//For coordinates location relative to the parent
+
+//For coordinates location relative to the parent
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 getLocalVisibleRect ${view.getLocalVisibleRect(rectf)}"
+                    )
+//For coordinates location relative to the screen/display
+
+//For coordinates location relative to the screen/display
+
+                    Log.i(
+                            FOO,
+                            " rootViewGroup1 getGlobalVisibleRect ${view.getGlobalVisibleRect(rectf)}"
+                    )
+                    Log.i("left         :", rectf.left.toString());
+                    Log.i("right        :", rectf.right.toString());
+                    Log.i("top          :", rectf.top.toString());
+                    Log.i("bottom       :", rectf.bottom.toString());
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 left ${view.left}"
+                    )
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 Top ${view.top}"
+                    )
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 right ${view.right}"
+                    )
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 bottom ${view.bottom}"
+                    )
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 focus ${view.hasFocus()}"
+                    )
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 visibility ${view.visibility}"
+                    )
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 enable ${view.isEnabled}"
+                    )
+
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 focusable ${view.isFocusable}"
+                    )
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 longclicked ${view.isLongClickable}"
+                    )
+
+                    Log.i(
+                            TextViewFoo,
+                            " rootViewGroup1 clickable ${view.isClickable}"
+                    )
+
+                    var firstCordinates = arrayOf(view.left, view.top)
+
+
+                    var secondCordinates = arrayOf(view.right, view.bottom)
+
+                    bounds =
+                            "${Arrays.toString(firstCordinates)} ${Arrays.toString(secondCordinates)}"
+
+                    focused = view.isFocused
+                    visible = view.visibility == 0
+                    enabled = view.isEnabled
+                    focusable = view.isFocusable
+                    longClickable = view.isLongClickable
+                    if (view.isScrollContainer) {
+                        scrollable = true
+                    }
+                    isClickable = view.isClickable
+
+                    view.findViewById<TextView>(view.id)
+                    viewText = "MyTextEdit"
+//                           (view as EditText).text as String?
+                    xPath = "//hierarchy[1]/"
+
+
+
+                    mouseEventList?.add(
+                            MouseEvent(null, null, null, null)
+                    )
+                    app = App(activity)
+                    var selectedComponent = SelectedComponent(
+                            `package` = app?.packageName,
+                            bounds = bounds.toString(),
+                            uId = uId,
+                            focused = focused,
+                            focusable = focusable,
+                            clickable = isClickable,
+                            enabled = enabled,
+                            longClickable = longClickable,
+                            scrollable = scrollable,
+                            visible = visible,
+                            resourceId = "",
+                            xpath = xPath,
+                            text = "viewText"
+
+                    )
+
+                    var device = DeviceConfigured(
+
+                            true,
+                            "",
+                            d!!.manufacturer,
+                            getScreenResolution(this.activity),
+                            formatSize(getRamForDevice(this.activity)),
+                            "DEFAULT",
+                            d!!.manufacturer,
+                            d!!.model,
+                            d!!.board,
+                            System.getProperty("os.arch"),
+                            d!!.osVersion,
+                            Build.VERSION.SDK_INT.toString(),
+                            d!!.device,
+                            "ANDROID"
+                    )
+                    var appInfo = AppInfo(
+                            app?.packageName,
+                            app?.appName,
+                            app?.appVersionCode.toString(),
+                            Build.VERSION.SDK_INT.toString(),
+                            null,
+                            null,
+                            "appIconFile",
+                            "appFile"
+                    )
+
+                    var action = "SET_TEXT"
+                    get64EncodedString(
+                            writeJSONObjectListener,
+                            selectedComponent,
+                            action,
+                            device,
+                            appInfo
+                    )
+
 
                 }
 
@@ -420,6 +586,8 @@ class MyWindowCallback() : Window.Callback {
 
 
         if (localCallback!!.dispatchTouchEvent(event)) {
+
+
             //    Log.d(FOO, "Wrting on file")
 
 //            val rootViewGroup = activity?.window?.decorView?.findViewById<ViewGroup>(R.id.)?.childCount
@@ -550,7 +718,7 @@ class MyWindowCallback() : Window.Callback {
 
 
         }
-        return false
+        return true
 
     }
 
